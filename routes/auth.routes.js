@@ -4,7 +4,7 @@ import { signIn } from '../controllers/auth.controller.js';
 import { signOut } from '../controllers/auth.controller.js';
 
 const authRouter = Router();
-
+ 
 // path: /api/v1/auth/sign-up (POST)
 authRouter.post('/sign-up', signUp);
 
