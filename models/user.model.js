@@ -1,4 +1,4 @@
-import mongoose from 'mongoos';
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
     name: { 
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
         required: [true, 'User Password is required'],
         minlength: 6,
     }
-},{ timestamp: true });
+},{ timestamps: true });
 
 const User = mongoose.model('User', userSchema);    
 
