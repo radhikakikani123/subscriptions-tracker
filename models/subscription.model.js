@@ -5,8 +5,8 @@ const subscriptionSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Subscription Name is required'],
         trim: true,
-        minlength: 2,
-        maxlength: 100,
+        minLength: 2,
+        maxLength: 100,
     },
     price: {
         type: Number,
@@ -22,12 +22,12 @@ const subscriptionSchema = new mongoose.Schema({
         type: String,
         enum: ['daily', 'weekly', 'monthly', 'yearly'],
     },
-    catogary: {
+    category: {
         type: String,
         enum: ['News', 'Entertainment', 'Food', 'Utilities', 'Health', 'Education', 'Other'],
         required: true,
     },
-    payment: {
+    paymentMethod: {
         type: String,
         required: true,
         trim: true,
@@ -42,19 +42,16 @@ const subscriptionSchema = new mongoose.Schema({
         required: true,
         validate: {
             validator: (value) => value <= new Date(),
-            message: 'Start date must be in the past or today'
-
+            message: 'Start date must be in the past',
         }
     },
     renewalDate: {
         type: Date,
-        required: true,
         validate: {
             validator: function (value) {
-                return value > this.startdate;
+                return value > this.startDate;
             },
             message: 'Renewal date must be after the start date'
-
         }
     },
     user: {
