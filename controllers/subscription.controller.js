@@ -18,8 +18,9 @@ export const createSubscription = async (req, res, next) => {
             'content-type': 'application/json',
         },
         retries: 0,
-
-     })
+      });
+      
+      
 
      res.status(201).json({success:true, data: subscription, workflowRunId});
     }
@@ -28,7 +29,7 @@ export const createSubscription = async (req, res, next) => {
     }
 }
 
-export default createSubscription;
+
 
 export const getUserSubscriptions = async (req, res, next) => {
     try {
@@ -43,3 +44,4 @@ export const getUserSubscriptions = async (req, res, next) => {
         next(e);
     }
 }
+export default createSubscription;
