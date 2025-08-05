@@ -5,4 +5,4 @@ const workflowRouter = Router();
  
 workflowRouter.post('/subscription/reminder', sendReminders);
 
-export default workflowRouter;
+export default workflowRouter; 

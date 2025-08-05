@@ -17,8 +17,6 @@ export const sendReminders = serve( async (context) => {
 
     const renewalDate = dayjs(subscription.renewalDate);
 
-    
-
     if(renewalDate.isBefore(dayjs())){
         console.log(`Renewal date has passed for subscription ${subscriptionId}. Stopping workflow.`) 
         return;
@@ -48,7 +46,7 @@ const sleepUntilReminder = async (context, label, date) => {
 
 const triggerReminder = async (context, label, subscription) => {
   return await context.run(label, async () => {
-   console.log(`Triggering ${label} reminder`);
+   console.log(`Triggering ${label} reminder`); 
 
     await sendReminderEmail({
       to: subscription.user.email,
